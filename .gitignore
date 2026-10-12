@@ -1,0 +1,34 @@
+# --- Your data never leaves this machine, and never enters git ---
+/data/
+/uploads/
+*.sqlite3
+*.sqlite3-*
+*.db
+.env
+.env.*
+
+# Safety net: statement-like files are ignored everywhere except anonymised test fixtures.
+*.pdf
+*.xls
+*.xlsx
+*.csv
+!backend/tests/fixtures/**/*.pdf
+!backend/tests/fixtures/**/*.xls
+!backend/tests/fixtures/**/*.xlsx
+!backend/tests/fixtures/**/*.csv
+
+# Python
+__pycache__/
+*.pyc
+backend/.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node (frontend/.gitignore covers the rest)
+node_modules/
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/

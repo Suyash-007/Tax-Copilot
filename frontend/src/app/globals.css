@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Calm neutrals + one accent. Money colours are semantic, not decorative. */
+:root {
+  --background: oklch(0.985 0.002 250);
+  --foreground: oklch(0.21 0.01 260);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--foreground);
+  --muted: oklch(0.955 0.004 250);
+  --muted-foreground: oklch(0.52 0.01 260);
+  --border: oklch(0.91 0.005 250);
+  --input: var(--border);
+  --ring: oklch(0.55 0.11 185);
+  --primary: oklch(0.5 0.1 185); /* the one accent: deep teal */
+  --primary-foreground: oklch(0.99 0 0);
+  --accent: oklch(0.95 0.025 185);
+  --accent-foreground: oklch(0.32 0.07 185);
+  --positive: oklch(0.52 0.13 155);
+  --negative: oklch(0.55 0.17 25);
+  --warning: oklch(0.7 0.14 75);
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: oklch(0.16 0.006 260);
+  --foreground: oklch(0.94 0.004 250);
+  --card: oklch(0.2 0.007 260);
+  --card-foreground: var(--foreground);
+  --muted: oklch(0.24 0.008 260);
+  --muted-foreground: oklch(0.68 0.01 260);
+  --border: oklch(0.29 0.008 260);
+  --input: var(--border);
+  --ring: oklch(0.7 0.1 185);
+  --primary: oklch(0.72 0.11 185);
+  --primary-foreground: oklch(0.18 0.02 185);
+  --accent: oklch(0.27 0.03 185);
+  --accent-foreground: oklch(0.86 0.06 185);
+  --positive: oklch(0.74 0.14 155);
+  --negative: oklch(0.72 0.15 25);
+  --warning: oklch(0.8 0.13 75);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-positive: var(--positive);
+  --color-negative: var(--negative);
+  --color-warning: var(--warning);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "tnum" 1; /* tabular numerals: amounts line up */
+  }
+}
